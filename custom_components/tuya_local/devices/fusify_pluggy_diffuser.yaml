@@ -1,0 +1,100 @@
+name: Aroma diffuser
+products:
+  - id: 4lkky07hrxqerlfe
+    manufacturer: FUSIFY
+    model: Pluggy
+    model_id: WD01E-053516
+entities:
+  - entity: switch
+    name: Power
+    icon: "mdi:scent"
+    dps:
+      - id: 2
+        type: boolean
+        name: switch
+  - entity: select
+    name: Gear
+    category: config
+    dps:
+      - id: 3
+        type: string
+        name: option
+        mapping:
+          - dps_val: 1gear
+            value: "1: 15 s on / 165 s off"
+          - dps_val: 2gear
+            value: "2: 60 s on / 120 s off"
+          - dps_val: 3gear
+            value: "3: 120 s on / 60 s off"
+  - entity: light
+    name: Light
+    dps:
+      - id: 7
+        type: boolean
+        name: switch
+  - entity: select
+    translation_key: timer
+    category: config
+    dps:
+      - id: 4
+        type: string
+        name: option
+        mapping:
+          - dps_val: tim1H
+            value: "2h"
+          - dps_val: tim2H
+            value: "4h"
+          - dps_val: tim4H
+            value: "8h"
+  - entity: sensor
+    translation_key: time_remaining
+    class: duration
+    category: diagnostic
+    dps:
+      - id: 5
+        type: integer
+        name: sensor
+        unit: min
+  - entity: sensor
+    name: Pump state
+    class: enum
+    category: diagnostic
+    dps:
+      - id: 101
+        type: string
+        name: sensor
+        mapping:
+          - dps_val: tim
+            value: Spraying
+          - dps_val: auto
+            value: Waiting
+  - entity: sensor
+    name: On time
+    class: duration
+    category: diagnostic
+    dps:
+      - id: 102
+        type: integer
+        name: sensor
+        unit: s
+  - entity: sensor
+    name: Off time
+    class: duration
+    category: diagnostic
+    dps:
+      - id: 103
+        type: integer
+        name: sensor
+        unit: s
+  - entity: select
+    name: Working mode
+    category: config
+    dps:
+      - id: 104
+        type: string
+        name: option
+        mapping:
+          - dps_val: zd
+            value: Smart
+          - dps_val: sd
+            value: Standard
